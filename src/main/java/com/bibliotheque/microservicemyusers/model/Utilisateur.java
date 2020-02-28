@@ -27,14 +27,14 @@ public class Utilisateur implements UserDetails {
     private List<RoleEnum> roleEnums;
 
     public Utilisateur() {
+
         this.roleEnums = Collections.singletonList(RoleEnum.USER);
     }
 
-    public Utilisateur(Long id, @NotNull String pseudo, @NotNull String motDePasse, List<RoleEnum> roleEnums) {
+    public Utilisateur(@NotNull String pseudo, @NotNull String motDePasse) {
         this.id = id;
         this.pseudo = pseudo;
         this.motDePasse = motDePasse;
-        this.roleEnums = roleEnums;
     }
 
     public Long getId() {

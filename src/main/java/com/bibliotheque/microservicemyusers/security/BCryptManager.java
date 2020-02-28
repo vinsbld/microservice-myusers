@@ -16,8 +16,9 @@ public class BCryptManager {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @Bean
+    @Bean(name = "passwordEncodeur")
     public static PasswordEncoder passwordEncoder(){
+
         return new BCryptPasswordEncoder();
     }
 }

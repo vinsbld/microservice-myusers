@@ -1,7 +1,7 @@
 package com.bibliotheque.microservicemyusers.controller;
 
 import org.apache.logging.log4j.LogManager;
-import org.slf4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -18,8 +18,9 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class ConnexionController {
 
-    final static Logger logger = (Logger) LogManager.getLogger();
+    final static Logger logger = LogManager.getLogger();
 
+    @GetMapping(value = "/Connexion")
     public ModelAndView loginGet(Model model, @RequestParam(value = "error", required = false)String error, @RequestParam(value = "logout", required = false) String logout){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String errorMessage = null;
