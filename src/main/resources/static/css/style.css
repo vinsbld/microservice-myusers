@@ -9,17 +9,17 @@
 --------------------------------------------------------------*/
 body {
   color: #666666;
-background: #fff;
+  background: #fff;
   font-family: "Open Sans", sans-serif;
 }
 
 
 a{
-	color: grey;
+  color: grey;
 }
- #supp a:hover{
- 	color: red;
- }
+#supp a:hover{
+  color: red;
+}
 
 a:hover, a:active, a:focus {
   color: #2dca98;
@@ -37,6 +37,18 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
   margin: 0 0 20px 0;
   padding: 0;
+}
+
+/* Prelaoder */
+#preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  background: #fff url("../img/preloader.svg") no-repeat center center;
 }
 
 /* Back to top button */
@@ -198,7 +210,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #page h1 {
   color: grey;
- /*  margin-bottom: 50px; */
+  /*  margin-bottom: 50px; */
   font-size: 36px;
 }
 
@@ -237,28 +249,28 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-info{
-	 border-radius: 50px;
- 	 transition: 0.2s;
+  border-radius: 50px;
+  transition: 0.2s;
 }
 
 .btn-danger{
-	 border-radius: 50px;
- 	 transition: 0.2s;
+  border-radius: 50px;
+  transition: 0.2s;
 }
 
 .btn-primary{
-	border: 2px solid #ae5700;
-	background-color : #804000;
-	border-radius: 50px;
- 	 transition: 0.2s;
+  border: 2px solid #ae5700;
+  background-color : #804000;
+  border-radius: 50px;
+  transition: 0.2s;
 }
 
 .btn-primary:hover {
-	
-	border: 2px solid #804000;
-	background-color : #ae5700;
-	border-radius: 50px;
- 	 transition: 0.2s;
+
+  border: 2px solid #804000;
+  background-color : #ae5700;
+  border-radius: 50px;
+  transition: 0.2s;
 }
 
 /* hypertext */
@@ -266,13 +278,13 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .btn-valid{
-	border-radius: 100%;
-	color: gray;
+  border-radius: 100%;
+  color: gray;
 
 }
 .btn-valid:hover{
-	background-color: #2dc997;
-	color: white;
+  background-color: #2dc997;
+  color: white;
 }
 
 /*--------------------------------------------------------------
@@ -548,11 +560,17 @@ body.mobile-nav-active #mobile-nav-toggle {
 # tables
 --------------------------------------------------------------*/
 .listTableDeco{
-	border: 1px solid #ccc;
-    padding: 5px;
-    margin: 5% 0;
-    transition: 0.2s;	
-    text-align: left;
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin: 5% 0;
+  /*     box-shadow: 3px 3px 2px #ccc; */
+  transition: 0.2s;
+  text-align: left;
 }
 
+
+/* .listTableDeco:hover{
+	box-shadow: 3px 3px 0px transparent;
+    transition: 0.5s;
+} */
 
