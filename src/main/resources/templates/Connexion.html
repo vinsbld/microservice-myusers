@@ -10,7 +10,7 @@
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="../static/css/style.css"
-          th:href="@{css/style_form.css}" />
+          th:href="@{css/style_formulaire.css}" />
 
     <title>Connexion</title>
 
@@ -28,11 +28,9 @@
             Vous avez été déconecté avec succès !
         </div>
     </div>
-    <form th:action="@{/Connexion}" method="post" class="form-horizontal">
+    <form th:action="@{connexion}" method="post" class="form-horizontal">
         <fieldset>
-            <div class="text-center">
-                <img src="img/logo_mini.png" alt="logo_mini" title="logo_mini" /></img>
-            </div>
+
             <div class="col-xs-8 col-xs-offset-4 text-center">
                 <h2>Connexion</h2>
             </div>

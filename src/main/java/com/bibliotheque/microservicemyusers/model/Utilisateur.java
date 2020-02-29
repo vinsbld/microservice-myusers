@@ -31,10 +31,11 @@ public class Utilisateur implements UserDetails {
         this.roleEnums = Collections.singletonList(RoleEnum.USER);
     }
 
-    public Utilisateur(@NotNull String pseudo, @NotNull String motDePasse) {
-        this.id = id;
+
+    public Utilisateur(@NotNull String pseudo, @NotNull String motDePasse, List<RoleEnum> roleEnums) {
         this.pseudo = pseudo;
-        this.motDePasse = motDePasse;
+        setMotDePasse(motDePasse);
+        this.roleEnums = roleEnums;
     }
 
     public Long getId() {
@@ -61,7 +62,6 @@ public class Utilisateur implements UserDetails {
         if (!motDePasse.isEmpty()){
             this.motDePasse = BCryptManager.passwordEncoder().encode(motDePasse);
         }
-        this.motDePasse = motDePasse;
     }
 
     public List<RoleEnum> getRoleEnums() {
@@ -96,7 +96,7 @@ public class Utilisateur implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override

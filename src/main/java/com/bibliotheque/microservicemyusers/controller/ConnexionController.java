@@ -20,7 +20,7 @@ public class ConnexionController {
 
     final static Logger logger = LogManager.getLogger();
 
-    @GetMapping(value = "/Connexion")
+    @GetMapping(value = "/connexion")
     public ModelAndView loginGet(Model model, @RequestParam(value = "error", required = false)String error, @RequestParam(value = "logout", required = false) String logout){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String errorMessage = null;
@@ -35,9 +35,9 @@ public class ConnexionController {
         model.addAttribute("errorMessge", errorMessage);
 
         if(!(auth instanceof AnonymousAuthenticationToken)) {
-            return new ModelAndView("redirect:/index");
+            return new ModelAndView("redirect:/acceuil");
         }
-        return new ModelAndView("Connexion");
+        return new ModelAndView("connexion");
     }
 
     @GetMapping("/logout")

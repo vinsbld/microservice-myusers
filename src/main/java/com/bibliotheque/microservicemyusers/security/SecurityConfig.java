@@ -7,18 +7,17 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final UserDetailsService userDetailsService;
 
+    private final UtilisateurSecurityService userDetailsService;
 
     @Autowired
-    public SecurityConfig(UserDetailsService userDetailsService){
+    public SecurityConfig(UtilisateurSecurityService userDetailsService){
         this.userDetailsService = userDetailsService;
     }
 
@@ -27,6 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         return new BCryptPasswordEncoder();
     }
+
 
     @Autowired
     public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
@@ -38,10 +38,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .anyRequest().permitAll()
                 .and()
-                .formLogin().loginPage("/Connexion")
-                .defaultSuccessUrl("/Acceuil")
+                .formLogin().loginPage("/connexion")
+                .defaultSuccessUrl("/acceuil")
                 .failureUrl("/connexion?error=true")
-                .usernameParameter("pseudo").passwordParameter("motDePasse")
+                .usernameParameter("username").passwordParameter("password")
                 .and()
                 .logout().invalidateHttpSession(true)
                 .logoutUrl("/logout")
@@ -49,7 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf()
                 .and()
-                .sessionManagement().maximumSessions(1).expiredUrl("/Connexion");
+                .sessionManagement().maximumSessions(1).expiredUrl("/connexion");
     }
 
 }

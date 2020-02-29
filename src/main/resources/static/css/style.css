@@ -39,18 +39,6 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
 }
 
-/* Prelaoder */
-#preloader {
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 999;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  background: #fff url("../img/preloader.svg") no-repeat center center;
-}
-
 /* Back to top button */
 .back-to-top {
   position: fixed;
@@ -563,14 +551,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 	border: 1px solid #ccc;
     padding: 5px;
     margin: 5% 0;
-/*     box-shadow: 3px 3px 2px #ccc; */
     transition: 0.2s;	
     text-align: left;
 }
 
-
-/* .listTableDeco:hover{
-	box-shadow: 3px 3px 0px transparent;
-    transition: 0.5s;
-} */
 
