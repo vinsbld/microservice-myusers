@@ -9,12 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import javax.annotation.PostConstruct;
 import java.util.Arrays;
 import java.util.Date;
 
 @SpringBootApplication
+@EnableSwagger2
 public class MicroserviceMyusersApplication {
 
 	public static void main(String[] args) {

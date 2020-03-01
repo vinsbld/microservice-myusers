@@ -1,5 +1,7 @@
 package com.bibliotheque.microservicemyusers.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -15,11 +17,13 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@Api("Gestion des connexions et déconnections utilisateur")
 @Controller
 public class ConnexionController {
 
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    @ApiOperation("Connexion utilisateur")
     @GetMapping(value = "/connexion")
     public ModelAndView loginGet(Model model, @RequestParam(value = "error", required = false)String error, @RequestParam(value = "logout", required = false) String logout){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -40,6 +44,7 @@ public class ConnexionController {
         return new ModelAndView("connexion");
     }
 
+    @ApiOperation("Déconnexion utilisateur")
     @GetMapping("/logout")
     public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
