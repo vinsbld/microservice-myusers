@@ -1,7 +1,7 @@
 package com.bibliotheque.microservicemyusers.controller;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class ConnexionController {
 
-    final static Logger logger = LogManager.getLogger();
+    Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @GetMapping(value = "/connexion")
     public ModelAndView loginGet(Model model, @RequestParam(value = "error", required = false)String error, @RequestParam(value = "logout", required = false) String logout){
@@ -30,7 +30,7 @@ public class ConnexionController {
         }
         if(logout != null) {
             errorMessage = "Vous avez été déconecté avec succès !";
-            logger.info("l'utilisateur c'est déconecté");
+            logger.info("l'utilisateur c'est déconnecté");
         }
         model.addAttribute("errorMessge", errorMessage);
 
