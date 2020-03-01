@@ -1,11 +1,13 @@
 package com.bibliotheque.microservicemyusers.model;
 
 import com.bibliotheque.microservicemyusers.security.BCryptManager;
+import org.hibernate.validator.internal.constraintvalidators.bv.EmailValidator;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import java.util.Collections;
 import java.util.List;
@@ -21,6 +23,9 @@ public class Utilisateur implements UserDetails {
     private String pseudo;
     @NotNull
     private String motDePasse;
+    @NotNull
+    @Email
+    private String email;
 
     @ElementCollection(targetClass = RoleEnum.class, fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
@@ -32,10 +37,11 @@ public class Utilisateur implements UserDetails {
     }
 
 
-    public Utilisateur(@NotNull String pseudo, @NotNull String motDePasse, List<RoleEnum> roleEnums) {
+    public Utilisateur(@NotNull String pseudo, @NotNull String motDePasse, List<RoleEnum> roleEnums, String email) {
         this.pseudo = pseudo;
         setMotDePasse(motDePasse);
         this.roleEnums = roleEnums;
+        this.email = email;
     }
 
     public Long getId() {
@@ -70,6 +76,14 @@ public class Utilisateur implements UserDetails {
 
     public void setRoleEnums(List<RoleEnum> roleEnums) {
         this.roleEnums = roleEnums;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override

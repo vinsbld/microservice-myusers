@@ -36,10 +36,9 @@ Header
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
                     <li><a th:href="@{/acceuil}">Accueil</a></li>
-                    <li>Profil</li>
                     <li><a sec:authorize="isAnonymous()" th:href="@{/connexion}">Connexion</a></li>
-                    <!--<li><a sec:authorize="isAuthenticated()" th:href="@{/profil}">[[${#httpServletRequest.remoteUser}]]</a></li>-->
-                    <li><form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post">
+                    <li><a sec:authorize="isAuthenticated()" th:href="@{/profil}">[[${#httpServletRequest.remoteUser}]]</a></li>
+                    <li><form sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post">
                         <input type="submit" value="Déconnexion" />
                     </form>
                     </li>

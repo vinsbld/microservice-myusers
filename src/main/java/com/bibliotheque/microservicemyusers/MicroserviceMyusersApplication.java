@@ -27,7 +27,7 @@ public class MicroserviceMyusersApplication {
 
 	@PostConstruct
 	private void postConstruct(){
-		utilisateurDao.save(new Utilisateur("martin", "martin", Arrays.asList(RoleEnum.USER)));
+		utilisateurDao.save(new Utilisateur("martin", "martin", Arrays.asList(RoleEnum.USER), "martin@gmail.com"));
 	}
 
 }
